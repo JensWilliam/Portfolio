@@ -1,0 +1,558 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+:root {
+    --overskrift-size: 3rem;
+    --paragraf-size: 1.5rem;
+    --timeplan-size: 1rem;
+    --accent-color: #72b7b7;
+    --color-main: #324b4b;
+    --color-knapp: #497a7a;
+    --color-knapp-border: #37474F;
+    --color-cv: #6c708d;
+
+    --border-radius: 1.125rem;
+    --border-radius-knapp: 25px;
+
+}
+
+body{
+    background-image: linear-gradient(
+        rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url("bilder/dr5.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+body, html{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+/*PARENT DIV til header/navbar og section/overskrift DIV'ene*/
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header{
+    flex: 1;
+    width: 100%;
+}
+
+.navbar{
+    position: relative;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2% 0 4% 0;
+    /*overflow: hidden;*/
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    padding: 0 3%;
+    width: 200px;
+    height: auto;
+}
+.logo img{
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+.navbar ul{
+    margin-right: 40px;
+}
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+    padding: 10px;
+    border-radius: 10px;
+}
+.navbar ul li.aktiv a{
+    color: var(--accent-color);
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    
+}
+.navbar ul li::after{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    bottom: 5px;
+    left: 0;
+    transition: width ease-out 200ms;
+}
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+/*Div med tekst og knapp, og bilde*/
+.overskrift{
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Kontaktsiden */
+.overskrift.to{
+    margin-bottom: 10%;
+}
+
+/*Denne div inneholder h1, p og knappen*/
+.tekst{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:flex-start;
+    text-align: center;
+    width: 100%;
+}
+.tekst.opg{
+    margin-bottom: 10%;
+}
+.tekst h1{
+    font-size: var(--overskrift-size);
+    margin-bottom: 20px;
+}
+.tekst p{
+    font-size: var(--paragraf-size);
+    line-height: 1.5em;
+    margin-bottom: 20px;
+}
+
+.bilde{
+    display: flex;
+    align-items: flex-end;
+}
+.bilde img{
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    filter: grayscale(100%);
+}
+
+
+
+/*KONTAKT MEG*/
+
+a#knapp {
+    display: inline-block;
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    border-radius: var(--border-radius-knapp);
+    font-weight: bold;
+    border: 2px solid var(--color-knapp-border);
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    text-decoration: none; 
+}
+
+a#knapp span {
+    background: var(--color-knapp);
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: ease-in, 200ms;
+}
+
+a#knapp:hover span {
+    width: 100%;
+}
+
+a#knapp:hover {
+    border: 2px solid transparent;
+}
+
+
+
+
+
+
+
+
+
+
+/* TA KONTAKT HTML */
+.kontakt{
+    width: 50%;
+    display: flex;
+    border-radius: 30px;
+}
+.kontaktTekst{
+    width: 100%;
+    padding: 20px;
+}
+.kontaktTekst h1{
+    font-size: var(--overskrift-size);
+    margin-bottom: 20px;
+}
+.kontaktTekst ul{
+    list-style: none;
+    font-size: var(--paragraf-size);
+    line-height: 1.5em;
+}
+
+
+/*TIMEPLANEN UNDER*/
+
+.overskriftTP{
+    flex: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    
+    width: 100%;
+    max-width: 100%;
+}
+
+.timeplan__grid{
+    display: grid;
+    grid-template-columns: repeat(6, minmax(40px, 1fr));
+    gap: 2px;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    border: 2px solid #211A1E;
+    text-align: center;
+}
+
+.timeplan__grid div {
+    font-size: var(--timeplan-size);
+    color: black;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+/* Cellene */
+.timeplan__grid__overskrift{
+    background-color: #fff;
+    font-weight: bold;
+}
+.tid{
+    grid-column: 1;
+    background-color: #fff;
+}
+.norsk{
+    background-color: #5BC0EB;
+}
+.brukerstøtte{
+    background-color: #C3423F;
+}
+.driftstøtte{
+    background-color: #9BC53D;
+}
+.utvikling{
+    background-color: #FDE74C;
+}
+.yff{
+    background-color: gray;
+}
+.gym{
+    background-color: #5BC0EB;
+}
+.samfunn{
+    background-color: #5BC0EB;
+}
+.tom{
+    background-color: #fff;
+}
+
+
+
+/*OPPGAVER HTML*/
+.python{
+    width: 100%;
+    display: flex;
+    align-items: first baseline;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+}
+.python h2{
+    font-size: var(--paragraf-size);
+    margin-bottom: 20px;
+    text-align: center;
+}
+.pythonopg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: clamp(160px, 40%, 500px);
+    padding: 20px; /* endres i query */
+    background-color: rgba(0,0,0,0.5);
+    border: 2px solid var(--color-knapp-border);
+    border-radius: var(--border-radius);
+}
+
+.pythonopg div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.pythonopg div a{
+    border-radius: 15px;
+    margin: 7px 0; 
+    position: relative;
+    text-decoration: none;
+    color: white;
+    padding: 10px 5px; 
+    text-align: left;
+    overflow: hidden;
+    
+}
+.pythonopg div a::after{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    bottom: 5px;
+    left: 0;
+    transition: width ease-out 150ms;
+}
+.pythonopg div a:hover::after{
+    width: 100%;
+}
+
+
+.cv{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.cv h1{
+    font-size: var(--overskrift-size);
+    margin-bottom: 20px;
+}
+.cv img{
+    width: 70%;
+    border-radius: var(--border-radius);
+}
+.cv div{
+    width: 90%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 20px;
+    border-radius: var(--border-radius);
+}
+/*KNAPP FOR NEDLASTING*/
+.cv div a{
+    justify-self: center;
+    align-self: center;
+    display: inline-block;
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    border-radius: var(--border-radius-knapp);
+    font-weight: bold;
+    border: 2px solid #37474F;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    text-decoration: none;
+}
+.cv div a span {
+    background: var(--color-knapp);
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: ease-in, 200ms;
+}
+.cv div a:hover span {
+    width: 100%;
+}
+.cv div a:hover {
+    border: 2px solid transparent;
+}
+
+/* Media Query cv.html*/
+
+@media(max-width: 700px) {
+    .cv img{
+        width: 70%;
+        margin-bottom: 15px;
+        align-self: center;
+        justify-self: center;
+    }
+    .cv div{
+        width: 95%;
+        padding: 10px;
+        margin-bottom: 25%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr min-content;
+    }
+    
+}
+
+
+/*Media Query index.html*/
+@media(max-width: 770px) {
+    body{
+        background-image: linear-gradient(
+        rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url("bilder/dr5_media.jpg");
+    }
+    :root{
+        --overskrift-size: 2.5rem;
+        --paragraf-size: 1.125rem;
+        --timeplan-size: 0.875rem;
+    }
+    .header{
+        flex: 0;
+    }
+    .navbar{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 0;
+    }
+    .navbar ul{
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        margin: 2% 0 0 0;
+    }
+    .navbar ul li{
+        margin: 0;
+    }
+    /*Fjerner hoverffekt på navbar & github-lenkene*/
+    .navbar ul li::after{
+        content: none;
+    }
+    .navbar ul li:active{
+        transform: scale(0.85);
+    }
+
+    .pythonopg div a::after{
+        content: none;
+    }
+    .pythonopg div a:active{
+        transform: scale(0.85);
+    }
+
+    .overskrift{
+        align-items: flex-start;
+        flex: 1;
+    }
+    .tekst{
+        width: 90%;
+    }
+    .bilde img{
+        display: none;
+    }
+
+    /* Knapp index og CV */
+    a#knapp span {
+        content: none;
+    }
+    a#knapp:hover span {
+        width: 0;
+    }
+    a#knapp:hover {
+        border: 2px solid #37474F;
+    }
+    a#knapp:active{
+        transform: scale(0.85);
+    }
+    
+    .cv div a span {
+        content: none;
+    }
+    .cv div a:hover span {
+        width: 0;
+    }
+    .cv div a:hover {
+        border: 2px solid #37474F;
+    }
+    .cv div a:active{
+        transform: scale(0.85);
+    }
+
+    /* Oppgaver */
+    .python h2{
+        font-size: 1.25rem;
+        margin-bottom: 15px;
+    }
+    .pythonopg{
+        padding: 15px;
+    }
+    .pythonopg div a{
+        margin: 0;
+        font-size: 0.875rem;
+    }
+    
+}
+
+/* Oppgaver men enda mindre skjerm */
+@media (max-width: 560px) {
+    .break{
+        display: block;
+    }
+   
+    .python h2{
+        font-size: 1rem;
+    }
+    .pythonopg{
+        padding: 15px 8px;
+    }
+}
+
+@media(max-width: 770px) {
+    .timeplan__grid{
+        width: 90%;
+    }
+}
+
+@media (max-width: 550px) {
+    .timeplan__grid{
+        width: 95%;
+        gap: 1px;
+    }
+    .timeplan__grid div {
+        font-size: 0.725rem;
+    }
+}
