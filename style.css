@@ -313,11 +313,14 @@ a#knapp:hover {
     align-items: center;
     width: clamp(160px, 40%, 500px);
     padding: 20px; /* endres i query */
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.7);
     border: 2px solid var(--color-knapp-border);
     border-radius: var(--border-radius);
 }
 
+.github{
+    color: rgb(50, 222, 50);
+}
 .pythonopg div{
     width: 100%;
     display: flex;
@@ -330,7 +333,7 @@ a#knapp:hover {
     margin: 7px 0; 
     position: relative;
     text-decoration: none;
-    color: white;
+    color: rgb(50, 222, 50);
     padding: 10px 5px; 
     text-align: left;
     overflow: hidden;
@@ -341,7 +344,7 @@ a#knapp:hover {
     position: absolute;
     width: 0;
     height: 2px;
-    background: var(--accent-color);
+    background: rgb(50, 222, 50);
     bottom: 5px;
     left: 0;
     transition: width ease-out 150ms;
